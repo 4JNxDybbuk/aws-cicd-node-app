@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USER_NAME: /nodeapp/docker/username
+    DOCKER_PASSWORD: /nodeapp/docker/password
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18.15.0
+  pre_build:
+    commands:
+      - echo "Install dependencies"
+      - echo "$DOCKER_USER_NAME"
+      - echo "$DOCKER_PASSWORD"
+      - ls -la
+      - npm install
+  build:
+    commands:
+      - echo "Build docker images & push to docker hub"
+      - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USER_NAME" --password-stdin  docker.io
+      - docker build -t "$DOCKER_USER_NAME"/node-app-aws-devops:latest .
+      - docker push "$DOCKER_USER_NAME"/node-app-aws-devops:latest
+  post_build:
+    commands:
+      - echo "Build successfull"
+      - docker image ls
