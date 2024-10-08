@@ -5,7 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
     return res.json({
         succeded: true,
-        msg: "API working!!"
+        msg: "Build CI/CD pipeline using AWS services like CodeBuild , CodePipeline , CodeDeploy...."
     })
 })
 

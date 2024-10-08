@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-cicd": "file:",
     "express": "^4.21.0"
   }
 }
