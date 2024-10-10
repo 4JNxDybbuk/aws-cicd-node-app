@@ -2,4 +2,4 @@
 set -e
 
 # Stop the running container (if any)
-docker rm -f container/node-app
+docker rm -f node-app
