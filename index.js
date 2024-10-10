@@ -9,4 +9,12 @@ app.get('/', (req, res) => {
     })
 })
 
+app.get('/api', (req, res) => {
+    return res.json({
+        succeded: true,
+        msg: "Testing CI/CD pipline...."
+    })
+})
+
+
 app.listen(5000, () => console.log("Server running.."))
