@@ -16,4 +16,11 @@ app.get('/api', (req, res) => {
     })
 })
 
+app.get('/api/deploy', (req, res) => {
+    return res.json({
+        succeded: true,
+        msg: "Successfully implements & run CI/CD pipline using AWS sevices(Code-Build, Code-Deploy, Code-Pipeline)...."
+    })
+})
+
 app.listen(5000, () => console.log("Server running at port.."))
